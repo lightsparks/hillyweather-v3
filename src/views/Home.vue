@@ -3,11 +3,26 @@
         <v-container fluid>
             <v-window v-model="step">
                 <v-window-item :value="1">
-                    <Today></Today>
+                    <v-card-title>{{ currentDate }}</v-card-title>
+                    <v-img :src="'/img/' + today.icon + '.png'" v-bind:alt="icon" ></v-img>
+                    <v-card-text>
+                        <h2>{{ today.condition }}</h2>
+                        <h1>{{ today.nowTemp + "°C" }}</h1>
+                        {{ "Min: " + today.minTemp + "°C" }}  ||  {{ "Max: " + today.maxTemp + "°C" }}
+                    </v-card-text>
                     <v-btn rounded @click="step++">7 dagen vooruit &#x276D;&#x276D;</v-btn>
                 </v-window-item>
                 <v-window-item :value="2">
-                    <Week></Week>
+                    <v-list>
+                        <v-list-item v-for="weekday in week" :key="weekday.dt">
+                            <v-card>
+                                <v-card-title>{{ formatDate(weekday.dt) }}</v-card-title>
+                                <img alt="Weekday Icon" :src="getImgUrl(week.weather[0].icon)"/>
+                                <v-card-text>{{ weekday.weather[0].description }}</v-card-text>
+                                <v-card-text>{{ Math.round(weekday.temp.day) + "°C" }}</v-card-text>
+                            </v-card>
+                        </v-list-item>
+                    </v-list>
                     <v-btn rounded @click="step--">&#x276C;&#x276C; Het weer vandaag</v-btn>
                 </v-window-item>
             </v-window>
@@ -15,17 +30,4 @@
     </v-app>
 </template>
 
-<script lang="ts">
-    import Vue from "vue";
-    import Week from "./Week/Week";
-    import Today from "./Today/Today";
-    import Component from "vue-class-component";
-
-    @Component({
-        components: {Today, Week}
-    })
-    export default class Home extends Vue {
-        step = 1;
-
-    }
-</script>
+<script lang="ts" src="./Home.ts"></script>

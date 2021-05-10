@@ -11,16 +11,6 @@ const routes: Array<RouteConfig> = [
     path: '/',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/today',
-    name: 'Today',
-    component: Today
-  },
-  {
-    path: '/week',
-    name: 'Week',
-    component: Week
   }
 ]
 

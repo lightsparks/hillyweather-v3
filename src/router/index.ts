@@ -1,7 +1,5 @@
 import Vue from 'vue';
 import VueRouter, { RouteConfig } from 'vue-router';
-import Today from "@/views/Today/Today.vue";
-import Week from "@/views/Week/Week.vue";
 import Home from "@/views/Home.vue";
 
 Vue.use(VueRouter)

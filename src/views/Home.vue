@@ -4,7 +4,7 @@
             <v-window v-model="step">
                 <v-window-item :value="1">
                     <v-card-title>{{ currentDate }}</v-card-title>
-                    <v-img :src="'/img/' + today.icon + '.png'" v-bind:alt="icon" ></v-img>
+                    <v-img :src="today.icon" alt="icon" width="50%"></v-img>
                     <v-card-text>
                         <h2>{{ today.condition }}</h2>
                         <h1>{{ today.nowTemp + "°C" }}</h1>
@@ -17,7 +17,7 @@
                         <v-list-item v-for="weekday in week" :key="weekday.dt">
                             <v-card>
                                 <v-card-title>{{ formatDate(weekday.dt) }}</v-card-title>
-                                <img alt="Weekday Icon" :src="getImgUrl(week.weather[0].icon)"/>
+                                <v-img alt="Weekday Icon" :src="weekday.icon" width="50%"></v-img>
                                 <v-card-text>{{ weekday.weather[0].description }}</v-card-text>
                                 <v-card-text>{{ Math.round(weekday.temp.day) + "°C" }}</v-card-text>
                             </v-card>

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Component from 'vue-class-component'
-import axios from "axios";
+import axios from "axios"
 import WeatherResponseINTF from "@/interfaces/WeatherResponseINTF";
 
 @Component
@@ -11,7 +11,7 @@ export default class Today extends Vue {
     apiUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=52.231589&lon=5.189039&exclude=minutely,hourly&units=metric&lang=nl&appid=d1e902b667baccdb37cfbc96ad629f00"
     apiCallError: Record<string, unknown> = {};
     currentDate = new Date().toLocaleDateString('nl-NL',{ weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    today = <WeatherResponseINTF>{
+    today: WeatherResponseINTF = {
         date: null,
         condition: "",
         nowTemp: null,
@@ -20,10 +20,12 @@ export default class Today extends Vue {
         maxTemp: null,
         icon: null,
     };
-    week: Array<any> = [];
+    apiResponse: Record<any, any> = {};
+    //today: Record<any, any> = {};
+    week: Record<any, any> = [];
 
     // *** Component MOUNTED lifecycle hook
-    mounted() {
+    mounted () {
         this.getWeather();
     }
 
@@ -31,17 +33,28 @@ export default class Today extends Vue {
     getWeather() {
         axios.get(this.apiUrl)
             .then((response) => {
-                console.log(response.data);
-                this.today.condition = response.data.current.weather[0].description;
-                this.today.nowTemp = Math.round(response.data.current.current.temp);
-                this.today.minTemp = Math.round(response.data.current.current.min);
-                this.today.maxTemp = Math.round(response.data.current.current.max);
-                this.today.icon = response.data.current.weather[0].icon;
-                console.log(this.today);
+                console.log(this.apiResponse);
+                Object.assign(this.today,{
+                    condition: response.data.current.weather[0].description,
+                    nowTemp: Math.round(response.data.current.temp),
+                    minTemp: Math.round(response.data.daily[0].temp.min),
+                    maxTemp: Math.round(response.data.daily[0].temp.max),
+                    icon: "./img/" + response.data.current.weather[0].icon + ".png",
+                });
+
+                this.week = response.data.daily.splice(1, 7).map((item: any) => {
+                    return {
+                        ...item,
+                        icon: `./img/${item.weather[0].icon}.png`
+                    }
+                });
+
+                console.log(this.week);
             }).catch(error => {
-            this.apiCallError = error.response.data ? error.response.data : "";
+            this.apiCallError = error.response.data;
             console.log(this.apiCallError);
         });
+
     }
 
     formatDate(dt: number): string {

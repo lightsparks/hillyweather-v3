@@ -4,7 +4,7 @@
       app
       color="primary"
       dark
-      hide-on-scroll
+      elevate-on-scroll
     >
       <div class="d-flex align-center">
         <v-img

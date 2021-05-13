@@ -5,7 +5,7 @@
                 <v-col cols="12" sm="12" md="8">
                     <v-window v-model="step">
                         <v-window-item :value="1">
-                            <v-card elevation="4">
+                            <v-card elevation="6">
                                 <v-card-title class="d-flex justify-center pb-6">{{ currentDate }}</v-card-title>
                                 <div class="pa-16 pt-0 pb-6">
                                     <v-img class="mx-auto" :src="today.icon" alt="icon" transition="scale-transition" width="140px"/>
@@ -30,7 +30,7 @@
                             </v-container>
                             <v-list>
                                 <v-list-item v-for="weekday in week" :key="weekday.dt">
-                                    <v-card class="mx-auto mb-6" width="500">
+                                    <v-card class="mx-auto mb-4" width="500">
                                         <v-card-title class="d-flex justify-center display-0 pb-0 display-1">
                                             <h6>{{ formatDate(weekday.dt) }}</h6>
                                         </v-card-title>

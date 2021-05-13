@@ -61,7 +61,4 @@ export default class Today extends Vue {
         return unformattedDate.toLocaleDateString('nl-NL',{ weekday: 'long', month: 'long', day: 'numeric' })
     }
 
-
-
-
 }

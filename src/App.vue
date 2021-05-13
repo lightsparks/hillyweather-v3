@@ -14,6 +14,7 @@
           src="./assets/01d.png"
           transition="scale-transition"
           width="40"
+          @click="reloadPage()"
         />
       </div>
       <v-spacer></v-spacer>
@@ -35,5 +36,10 @@ export default Vue.extend({
   data: () => ({
     //
   }),
+  methods: {
+    reloadPage(){
+      window.location.reload()
+    }
+  }
 });
 </script>

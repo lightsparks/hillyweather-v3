@@ -8,7 +8,7 @@
                             <v-card elevation="4">
                                 <v-card-title class="d-flex justify-center pb-6">{{ currentDate }}</v-card-title>
                                 <div class="pa-16 pt-0 pb-6">
-                                    <v-img class="mx-auto" :src="today.icon" alt="icon" transition="scale-transition" height="20%"/>
+                                    <v-img class="mx-auto" :src="today.icon" alt="icon" transition="scale-transition" width="140px"/>
                                 </div>
                                 <v-card-text class="pt-0">
                                     <v-card-subtitle class="text-center display-1 font-italic">{{ today.condition }}</v-card-subtitle>

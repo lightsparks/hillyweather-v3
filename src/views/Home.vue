@@ -4,7 +4,6 @@
             <v-row class="d-flex justify-center">
                 <v-col cols="12" sm="12" md="8">
                     <v-window v-model="step">
-
                         <v-window-item :value="1">
                             <v-card elevation="4">
                                 <v-card-title class="d-flex justify-center pb-0">{{ currentDate }}</v-card-title>
@@ -42,9 +41,7 @@
                                 </v-list-item>
                             </v-list>
                         </v-window-item>
-
                     </v-window>
-
                 </v-col>
             </v-row>
         </v-container>

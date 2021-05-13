@@ -6,9 +6,9 @@
                     <v-window v-model="step">
                         <v-window-item :value="1">
                             <v-card elevation="4">
-                                <v-card-title class="d-flex justify-center pb-0">{{ currentDate }}</v-card-title>
+                                <v-card-title class="d-flex justify-center pb-4">{{ currentDate }}</v-card-title>
                                 <div class="pa-16 pt-0 pb-0">
-                                    <v-img class="mx-auto" :src="today.icon" alt="icon" height="20%"/>
+                                    <v-img class="mx-auto" :src="today.icon" alt="icon" max-width="300px" max-height="300px"/>
                                 </div>
                                 <v-card-text class="pt-0">
                                     <v-card-subtitle class="text-center display-1 font-italic">{{ today.condition }}</v-card-subtitle>
@@ -17,7 +17,8 @@
                                 </v-card-text>
                                 <v-container class="d-flex align-self-end">
                                     <v-spacer></v-spacer>
-                                    <v-btn class="d-flex justify-end" color="primary" rounded @click="step++">7 dagen vooruit &#x276D;&#x276D;</v-btn>
+                                    <v-btn class="d-flex justify-center" color="primary"  rounded @click="step++">7 dagen vooruit &#x276D;&#x276D;</v-btn>
+                                    <v-spacer></v-spacer>
                                 </v-container>
                             </v-card>
                         </v-window-item>
@@ -26,6 +27,7 @@
                             <v-container>
                                 <v-spacer></v-spacer>
                                 <v-btn color="primary" rounded @click="step--">&#x276C;&#x276C; Het weer vandaag</v-btn>
+                                <v-spacer></v-spacer>
                             </v-container>
                             <v-list>
                                 <v-list-item v-for="weekday in week" :key="weekday.dt">

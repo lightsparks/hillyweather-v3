@@ -21,7 +21,6 @@ export default class Today extends Vue {
         icon: null,
     };
     apiResponse: Record<any, any> = {};
-    //today: Record<any, any> = {};
     week: Record<any, any> = [];
 
     // *** Component MOUNTED lifecycle hook
@@ -62,9 +61,6 @@ export default class Today extends Vue {
         return unformattedDate.toLocaleDateString('nl-NL',{ weekday: 'long', month: 'long', day: 'numeric' })
     }
 
-    /*getImgUrl(icon: string): string {
-        return require('@/assets/' + icon + ".png");
-    }*/
 
 
 

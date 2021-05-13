@@ -24,7 +24,6 @@
                                 </v-container>
                             </v-card>
                         </v-window-item>
-
                         <v-window-item :value="2">
                             <v-container class="d-flex justify-center">
                                 <v-btn color="primary" rounded @click="step--">&#x276C;&#x276C; Het weer vandaag</v-btn>

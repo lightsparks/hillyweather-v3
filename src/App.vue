@@ -4,6 +4,7 @@
       app
       color="primary"
       dark
+      hide-on-scroll
     >
       <div class="d-flex align-center">
         <v-img
@@ -16,7 +17,7 @@
         />
       </div>
       <v-spacer></v-spacer>
-      <h1>HillyWeather v3.0</h1>
+      <h1 class="font-weight-medium">HillyWeather v3.0</h1>
     </v-app-bar>
 
     <v-main>
